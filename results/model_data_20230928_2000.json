@@ -1,0 +1,157 @@
+{
+    "Date of Training": "20230928_2000",
+    "Training File": "modified_data/gemini_data_BTCG_mod.csv",
+    "Data Range": {
+        "Start": "2023-09-19",
+        "End": "2022-02-11"
+    },
+    "Features Used": [
+        "RSI",
+        "MACD",
+        "Percentage_Returns",
+        "Log_Returns"
+    ],
+    "Targets": [
+        "1 hour",
+        "24 hours",
+        "168 hours"
+    ],
+    "Model Structure": "StockPredictor(\n  (lstm): LSTM(4, 50, num_layers=2, batch_first=True, dropout=0.5)\n  (linear): Linear(in_features=50, out_features=3, bias=True)\n)",
+    "Model Parameters": {
+        "Hidden Dimension": 50,
+        "Number of Layers": 2,
+        "Dropout Rate": 0.5
+    },
+    "Loss Function": "BCELoss()",
+    "Optimizer": {
+        "Type": "Adam",
+        "Learning Rate": 0.001,
+        "Weight Decay": 1e-05
+    },
+    "Epochs": 10,
+    "Train Loss Over Epochs": [
+        0.6787837289951064,
+        0.6669819774952802,
+        0.6520031531426039,
+        0.6420740447938442,
+        0.6311791163276542,
+        0.6202143870971419,
+        0.609978353435343,
+        0.6005390360951424,
+        0.5885111052881588,
+        0.5777303725481033
+    ],
+    "Test Loss Over Epochs": [
+        0.709422226656567,
+        0.7399656176567078,
+        0.7723439180038192,
+        0.8022180971774188,
+        0.8207589130509984,
+        0.8201682391491804,
+        0.8656364333900538,
+        0.8826841373335231,
+        0.9008083580569788,
+        0.9160137792879884
+    ],
+    "Evaluation Metrics": [
+        {
+            "Threshold": 0.4,
+            "1 hour": {
+                "Actual 1s": 13330,
+                "Actual 0s": 14790,
+                "Predicted 1s": 11292,
+                "Predicted 0s": 16828,
+                "False Positives": 6040,
+                "False Negatives": 8078,
+                "False Positive Ratio": 0.2899663946231397,
+                "False Negative Ratio": 0.3773355754857997
+            },
+            "24 hours": {
+                "Actual 1s": 15060,
+                "Actual 0s": 13060,
+                "Predicted 1s": 21065,
+                "Predicted 0s": 7055,
+                "False Positives": 9626,
+                "False Negatives": 3621,
+                "False Positive Ratio": 0.4243145552323019,
+                "False Negative Ratio": 0.19383330656817088
+            },
+            "168 hours": {
+                "Actual 1s": 16910,
+                "Actual 0s": 11210,
+                "Predicted 1s": 19637,
+                "Predicted 0s": 8483,
+                "False Positives": 7827,
+                "False Negatives": 5100,
+                "False Positive Ratio": 0.4111467142932185,
+                "False Negative Ratio": 0.23171285779191278
+            }
+        },
+        {
+            "Threshold": 0.5,
+            "1 hour": {
+                "Actual 1s": 13330,
+                "Actual 0s": 14790,
+                "Predicted 1s": 1056,
+                "Predicted 0s": 27064,
+                "False Positives": 568,
+                "False Negatives": 12842,
+                "False Positive Ratio": 0.0369839822893606,
+                "False Negative Ratio": 0.4906770594528504
+            },
+            "24 hours": {
+                "Actual 1s": 15060,
+                "Actual 0s": 13060,
+                "Predicted 1s": 15239,
+                "Predicted 0s": 12881,
+                "False Positives": 6959,
+                "False Negatives": 6780,
+                "False Positive Ratio": 0.3476197612268345,
+                "False Negative Ratio": 0.31043956043956045
+            },
+            "168 hours": {
+                "Actual 1s": 16910,
+                "Actual 0s": 11210,
+                "Predicted 1s": 16543,
+                "Predicted 0s": 11577,
+                "False Positives": 6607,
+                "False Negatives": 6974,
+                "False Positive Ratio": 0.3708256159847337,
+                "False Negative Ratio": 0.2919946407636912
+            }
+        },
+        {
+            "Threshold": 0.6,
+            "1 hour": {
+                "Actual 1s": 13330,
+                "Actual 0s": 14790,
+                "Predicted 1s": 0,
+                "Predicted 0s": 28120,
+                "False Positives": 0,
+                "False Negatives": 13330,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 0.5
+            },
+            "24 hours": {
+                "Actual 1s": 15060,
+                "Actual 0s": 13060,
+                "Predicted 1s": 10754,
+                "Predicted 0s": 17366,
+                "False Positives": 4870,
+                "False Negatives": 9176,
+                "False Positive Ratio": 0.271611823759063,
+                "False Negative Ratio": 0.37861033173791053
+            },
+            "168 hours": {
+                "Actual 1s": 16910,
+                "Actual 0s": 11210,
+                "Predicted 1s": 12469,
+                "Predicted 0s": 15651,
+                "False Positives": 4971,
+                "False Negatives": 9412,
+                "False Positive Ratio": 0.30721216241270627,
+                "False Negative Ratio": 0.35757161309930857
+            }
+        }
+    ]
+}

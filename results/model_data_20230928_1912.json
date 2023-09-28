@@ -1,0 +1,48 @@
+{
+    "Training File": "modified_data/gemini_data_BTCG_mod.csv",
+    "Features Used": [
+        "RSI",
+        "MACD",
+        "Percentage_Returns",
+        "Log_Returns"
+    ],
+    "Target Feature": [
+        "RSI",
+        "MACD",
+        "Percentage_Returns",
+        "Log_Returns"
+    ],
+    "Sequence Length": 50,
+    "Model Structure": "StockPredictor(\n  (lstm): LSTM(4, 50, num_layers=2, batch_first=True, dropout=0.5)\n  (linear): Linear(in_features=50, out_features=3, bias=True)\n)",
+    "Loss Function": "BCELoss()",
+    "Epochs": 10,
+    "Thresholds": [
+        0.4,
+        0.5,
+        0.6
+    ],
+    "Train Loss Over Epochs": [
+        0.6794093803248622,
+        0.6685871034860611,
+        0.6585978564213623,
+        0.6530740901150487,
+        0.6426938589323651,
+        0.6344898752868176,
+        0.6283290596170858,
+        0.6226366290991957,
+        0.6112080551683903,
+        0.6032863885841586
+    ],
+    "Test Loss Over Epochs": [
+        0.7056058049201965,
+        0.7260761220346797,
+        0.7459267540411516,
+        0.7645710916681723,
+        0.7938114519823681,
+        0.7956297634677454,
+        0.8053647875785828,
+        0.8286820189519362,
+        0.8316383117979224,
+        0.8860879344019023
+    ]
+}

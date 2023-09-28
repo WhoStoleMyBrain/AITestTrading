@@ -35,14 +35,14 @@ targets = [
     f"Target_shifted_{TIME_DIFF_168}"
 ]
 
-file_idx = 12
+file_idx = 13
 num_epochs = 10
 all_predictions = []
 all_actual = []
 train_losses = []
 test_losses = []
 # target_feature = "Target"
-features = ['RSI', 'MACD', 'Percentage_Returns', 'Log_Returns'] + targets
+features = ['RSI', 'MACD', 'Percentage_Returns', 'Log_Returns']
 seq_length = 50
 X, y = [], []
 model = StockPredictor(input_dim=len(features), hidden_dim=50, num_layers=2)
@@ -55,17 +55,24 @@ file_paths.sort()
 print(f'Opening file: {file_paths[file_idx]}')
 data = pd.read_csv(file_paths[file_idx])
 data = data.dropna()
-prices = data[features].values
+
+all_columns = features + targets
+prices = data[all_columns].values
+
 assert not np.isnan(prices).any(), "There are still NaN values in the data!"
 assert not np.isinf(prices).any(), "There are infinite values in the data!"
+
+X, y = [], []
+
 
 # for i in range(len(prices) - seq_length):
 #     X.append(prices[i:i+seq_length])
 #     y.append(prices[i+seq_length, features.index(target_feature)]) # We want to predict the target_feature value
 
 for i in range(len(prices) - seq_length):
-    X.append(prices[i:i+seq_length])
-    y.append([prices[i+seq_length, features.index(target)] for target in targets])
+    X.append(prices[i:i+seq_length, :len(features)])
+    y_values = [prices[i+seq_length, len(features)+target_idx] for target_idx in range(len(targets))]
+    y.append(y_values)
 
 X = np.array(X)
 y = np.array(y)
@@ -134,52 +141,81 @@ for thresh in thresholds:
 # Note that all_actual and all_predictions should be lists of lists where 
 # each inner list is of length 3 (since there are 3 predictions per entry)
 
-# Initializing counts
-actual_ones = [0, 0, 0]
-actual_zeros = [0, 0, 0]
-predicted_ones = [0, 0, 0]
-predicted_zeros = [0, 0, 0]
-false_positives = [0, 0, 0]
-false_negatives = [0, 0, 0]
+# thresholds = [0.4, 0.5, 0.6]
 
-used_threshold = thresholds[-1]
+def compute_metrics_for_threshold(all_actual, all_predictions, threshold):
+    actual_ones = [0, 0, 0]
+    actual_zeros = [0, 0, 0]
+    predicted_ones = [0, 0, 0]
+    predicted_zeros = [0, 0, 0]
+    false_positives = [0, 0, 0]
+    false_negatives = [0, 0, 0]
 
-for actual_values, predicted_values in zip(all_actual, all_predictions):
-    for idx, (actual, predicted) in enumerate(zip(actual_values, predicted_values)):
-        if actual == 1:
-            actual_ones[idx] += 1
-            if predicted < used_threshold:
-                false_negatives[idx] += 1
-        else:
-            actual_zeros[idx] += 1
-            if predicted >= used_threshold:
-                false_positives[idx] += 1
-        
-        if predicted >= used_threshold:
-            predicted_ones[idx] += 1
-        else:
-            predicted_zeros[idx] += 1
+    for actual_values, predicted_values in zip(all_actual, all_predictions):
+        for idx, (actual, predicted) in enumerate(zip(actual_values, predicted_values)):
+            if actual == 1:
+                actual_ones[idx] += 1
+                if predicted < threshold:
+                    false_negatives[idx] += 1
+            else:
+                actual_zeros[idx] += 1
+                if predicted >= threshold:
+                    false_positives[idx] += 1
 
-print(f'all_predictions: {all_predictions}')
+            if predicted >= threshold:
+                predicted_ones[idx] += 1
+            else:
+                predicted_zeros[idx] += 1
 
-print("\nSummary:")
+    metrics = {
+        "actual_ones": actual_ones,
+        "actual_zeros": actual_zeros,
+        "predicted_ones": predicted_ones,
+        "predicted_zeros": predicted_zeros,
+        "false_positives": false_positives,
+        "false_negatives": false_negatives
+    }
+    return metrics
+
 
 targets = ["1 hour", "24 hours", "168 hours"]
-for i, target in enumerate(targets):
-    print(f"Metrics for prediction over {target}:")
-    print(f"Actual 1s: {actual_ones[i]}")
-    print(f"Actual 0s: {actual_zeros[i]}")
-    print(f"Predicted 1s: {predicted_ones[i]}")
-    print(f"Predicted 0s: {predicted_zeros[i]}")
-    print(f"false positives: {false_positives[i]}")
-    print(f"false negatives: {false_negatives[i]}")
-    print(f"False Positive Ratio: {false_positives[i] / (false_positives[i] + actual_zeros[i]):.4f}")  
-    print(f"False Negative Ratio: {false_negatives[i] / (false_negatives[i] + actual_ones[i]):.4f}")  
-    print("------\n")
+evaluation_metrics_by_threshold = []
 
+for thresh in thresholds:
+    print(f"\nMetrics for threshold {thresh}:")
+    metrics = compute_metrics_for_threshold(all_actual, all_predictions, thresh)
+
+    metrics_for_threshold = {
+        "Threshold": thresh
+    }
+    for i, target in enumerate(targets):
+        print(f"Metrics for prediction over {target}:")
+        print(f"Actual 1s: {metrics['actual_ones'][i]}")
+        print(f"Actual 0s: {metrics['actual_zeros'][i]}")
+        print(f"Predicted 1s: {metrics['predicted_ones'][i]}")
+        print(f"Predicted 0s: {metrics['predicted_zeros'][i]}")
+        print(f"False Positives: {metrics['false_positives'][i]}")
+        print(f"False Negatives: {metrics['false_negatives'][i]}")
+        print(f"False Positive Ratio: {metrics['false_positives'][i] / (metrics['false_positives'][i] + metrics['actual_zeros'][i]):.4f}")
+        print(f"False Negative Ratio: {metrics['false_negatives'][i] / (metrics['false_negatives'][i] + metrics['actual_ones'][i]):.4f}")
+        print("------\n")
+        # Storing metrics for this target
+        metrics_for_threshold[target] = {
+            "Actual 1s": metrics['actual_ones'][i],
+            "Actual 0s": metrics['actual_zeros'][i],
+            "Predicted 1s": metrics['predicted_ones'][i],
+            "Predicted 0s": metrics['predicted_zeros'][i],
+            "False Positives": metrics['false_positives'][i],
+            "False Negatives": metrics['false_negatives'][i],
+            "False Positive Ratio": metrics['false_positives'][i] / (metrics['false_positives'][i] + metrics['actual_zeros'][i]),
+            "False Negative Ratio": metrics['false_negatives'][i] / (metrics['false_negatives'][i] + metrics['actual_ones'][i])
+        }
+
+    evaluation_metrics_by_threshold.append(metrics_for_threshold)
 
 def check_timestamp(ts):
     return len(str(ts)) == 13
+
 
 # Converting milliseconds to seconds
 data['unix'] = data['unix'].apply(lambda x: x//1000 if check_timestamp(x) else x)
@@ -194,37 +230,125 @@ current_time = datetime.now().strftime('%Y%m%d_%H%M')
 file_name = f"results/model_data_{current_time}.json"
 
 model_data = {
+    "Date of Training": current_time,
     "Training File": file_paths[file_idx],
+    "Data Range": {"Start": pd.Timestamp(dates[0]).strftime('%Y-%m-%d'), "End": pd.Timestamp(dates[-1]).strftime('%Y-%m-%d')},
     "Features Used": features,
-    "Target Feature": features,  # TODO Refactoring required
-    "Sequence Length": seq_length,
+    "Targets": targets,
     "Model Structure": str(model),
+    "Model Parameters": {
+        "Hidden Dimension": model.lstm.hidden_size,
+        "Number of Layers": model.lstm.num_layers,
+        "Dropout Rate": model.lstm.dropout,
+    },
     "Loss Function": str(criterion),
+    "Optimizer": {
+        "Type": "Adam",
+        "Learning Rate": 0.001,
+        "Weight Decay": 1e-5
+    },
     "Epochs": num_epochs,
-    "Thresholds": thresholds,
     "Train Loss Over Epochs": train_losses,
-    "Test Loss Over Epochs": test_losses
+    "Test Loss Over Epochs": test_losses,
+    "Evaluation Metrics": evaluation_metrics_by_threshold,
 }
+
 
 with open(file_name, 'w') as file:
     json.dump(model_data, file, indent=4)
 
 print(f"Saved model data to {file_name}")
 
-# 1. Plotting features over time
-fig, axes = plt.subplots(nrows=len(features), figsize=(14, 4*len(features)), sharex=True)
+# Given thresholds and evaluation_metrics_by_threshold from your code
+thresholds = [metrics["Threshold"] for metrics in evaluation_metrics_by_threshold]
 
-for i, (ax, feature) in enumerate(zip(axes, features)):
-    ax.plot(dates, data[feature][seq_length:], label=feature)
-    if i == len(features) - 1:  # Only label the bottom-most x-axis
-        ax.set_xlabel('Date')
-    ax.set_ylabel('Value')
-    ax.set_title(f'Feature: {feature}')
-    ax.legend()
-    ax.grid(True)
+# Extracting the data for each target
+fp_ratios = {target: [] for target in targets}
+fn_ratios = {target: [] for target in targets}
+fp_counts = {target: [] for target in targets}
+fn_counts = {target: [] for target in targets}
+
+for metrics in evaluation_metrics_by_threshold:
+    for target in targets:
+        fp_ratios[target].append(metrics[target]['False Positive Ratio'])
+        fn_ratios[target].append(metrics[target]['False Negative Ratio'])
+        fp_counts[target].append(metrics[target]['False Positives'])
+        fn_counts[target].append(metrics[target]['False Negatives'])
+
+# Plotting
+fig, axs = plt.subplots(3, 1, figsize=(10, 15))
+
+for idx, target in enumerate(targets):
+    axs[idx].plot(thresholds, fp_ratios[target], label=f'FP Ratio (FP: {fp_counts[target][idx]})')
+    axs[idx].plot(thresholds, fn_ratios[target], label=f'FN Ratio (FN: {fn_counts[target][idx]})')
+    
+    axs[idx].set_title(f'Prediction over {target}')
+    axs[idx].set_xlabel('Threshold')
+    axs[idx].set_ylabel('Ratio')
+    axs[idx].legend()
 
 plt.tight_layout()
 plt.show()
+
+
+# from sklearn.metrics import confusion_matrix
+# # Simulated data
+# # y_true = np.random.randint(0, 2, 1000)
+# # y_pred_probabilities = np.random.rand(1000)
+
+# def compute_ratio(y_true, y_pred):
+#     tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+#     if fp == 0:
+#         return np.inf  # Return infinity if false positive is zero
+#     return fn / fp
+
+# thresholds = np.linspace(0, 1, 100)
+# # prediction_periods = [10, 30, 60]
+
+# fig, axs = plt.subplots(3, 1, figsize=(10, 15))
+
+# for idx, hours in enumerate(targets):
+#     ratios = []
+#     abs_fns = []
+#     abs_fps = []
+
+#     # Extract data for the current prediction period
+#     # current_y_true = y_true[:hours]
+#     # current_y_pred_prob = y_pred_probabilities[:hours]
+
+#     current_y_true = all_actual[idx]
+#     current_y_pred_prob = all_predictions[idx]
+
+#     for threshold in thresholds:
+#         y_pred = (current_y_pred_prob > threshold).astype(int)
+#         ratios.append(compute_ratio(current_y_true, y_pred))
+#         _, fp, fn, _ = confusion_matrix(current_y_true, y_pred).ravel()
+#         abs_fns.append(fn)
+#         abs_fps.append(fp)
+
+#     axs[idx].plot(thresholds, ratios, label=f'False Negative/False Positive Ratio')
+#     axs[idx].set_title(f'Prediction Period: {hours} hours')
+#     axs[idx].set_xlabel('Threshold')
+#     axs[idx].set_ylabel('FN/FP Ratio')
+#     axs[idx].legend([f'FN: {fn}, FP: {fp}' for fn, fp in zip(abs_fns, abs_fps)])
+
+# plt.tight_layout()
+# plt.show()
+
+# 1. Plotting features over time
+# fig, axes = plt.subplots(nrows=len(features), figsize=(14, 4*len(features)), sharex=True)
+
+# for i, (ax, feature) in enumerate(zip(axes, features)):
+#     ax.plot(dates, data[feature][seq_length:], label=feature)
+#     if i == len(features) - 1:  # Only label the bottom-most x-axis
+#         ax.set_xlabel('Date')
+#     ax.set_ylabel('Value')
+#     ax.set_title(f'Feature: {feature}')
+#     ax.legend()
+#     ax.grid(True)
+
+# plt.tight_layout()
+# plt.show()
 
 # 2. Display target and predicted values for "close" column over time
 test_dates = dates[-len(y_test):]
@@ -253,3 +377,82 @@ plt.title('Train and Test Loss Over Epochs')
 plt.legend()
 plt.grid(True)
 plt.show()
+
+# fig, axes = plt.subplots(3, 3, figsize=(18, 12), sharex=True, sharey=True)
+
+# # Loop over prediction time frames (rows)
+# for row, target in enumerate(targets):
+#     # Loop over thresholds (columns)
+#     for col, thresh in enumerate(thresholds):
+#         ax = axes[row, col]
+        
+#         actual_values = [act[row] for act in all_actual[-len(y_test):]]
+#         predicted_values = [pred[row] for pred in all_predictions[-len(y_test):]]
+        
+#         # Convert probability to binary labels based on threshold
+#         predicted_labels = [(1 if p > thresh else 0) for p in predicted_values]
+        
+#         ax.plot(test_dates, actual_values, label="Actual", color="blue")
+#         ax.plot(test_dates, predicted_labels, label="Predicted", color="red", alpha=0.7)
+        
+#         # If it's the first column, label the rows with the prediction timeframe
+#         if col == 0:
+#             ax.set_ylabel(f'{target} Target')
+        
+#         # If it's the last row, label the columns with the threshold
+#         if row == 2:
+#             ax.set_xlabel(f'Threshold: {thresh}')
+        
+#         ax.grid(True)
+
+# # Tight layout to ensure no overlaps
+# plt.tight_layout()
+# plt.show()
+
+fig, axes = plt.subplots(3, 3, figsize=(18, 12), sharex=True, sharey=True)
+
+# Loop over prediction time frames (rows)
+for row, target in enumerate(targets):
+    # Loop over thresholds (columns)
+    for col, thresh in enumerate(thresholds):
+        ax = axes[row, col]
+        
+        actual_values = [act[row] for act in all_actual[-len(y_test):]]
+        predicted_values = [pred[row] for pred in all_predictions[-len(y_test):]]
+        
+        # Convert probability to binary labels based on threshold
+        predicted_labels = [(1 if p > thresh else 0) for p in predicted_values]
+        
+        # Compute errors for visualization
+        errors = []
+        for actual, predicted in zip(actual_values, predicted_labels):
+            if actual == predicted:
+                errors.append(0)
+            elif actual == 0 and predicted == 1:
+                errors.append(-1)
+            else:
+                errors.append(1)
+        
+        ax.plot(test_dates, errors, label="Error", color="green")
+        
+        # If it's the first column, label the rows with the prediction timeframe
+        if col == 0:
+            ax.set_ylabel(f'{target} Target')
+        
+        # If it's the last row, label the columns with the threshold
+        if row == 2:
+            ax.set_xlabel(f'Threshold: {thresh}')
+        
+        ax.axhline(0, color='black', linewidth=0.5) # Drawing the 0 line for clarity
+        ax.set_ylim([-1.5, 1.5]) # Setting y-axis limits for clear visualization
+        ax.grid(True)
+
+# Tight layout to ensure no overlaps
+plt.tight_layout()
+current_time = datetime.now().strftime('%Y%m%d_%H%M')
+
+plt.savefig(f'results/plots/errors_plot_{current_time}')
+plt.show()
+
+if not os.path.exists('results/plots'):
+    os.makedirs('results/plots')

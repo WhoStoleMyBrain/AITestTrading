@@ -1,0 +1,54 @@
+{
+    "Training File": "modified_data/gemini_data_BOND_mod.csv",
+    "Features Used": [
+        "RSI",
+        "MACD",
+        "Percentage_Returns",
+        "Log_Returns",
+        "Target_shifted_1",
+        "Target_shifted_24",
+        "Target_shifted_168"
+    ],
+    "Target Feature": [
+        "RSI",
+        "MACD",
+        "Percentage_Returns",
+        "Log_Returns",
+        "Target_shifted_1",
+        "Target_shifted_24",
+        "Target_shifted_168"
+    ],
+    "Sequence Length": 50,
+    "Model Structure": "StockPredictor(\n  (lstm): LSTM(7, 50, num_layers=2, batch_first=True, dropout=0.5)\n  (linear): Linear(in_features=50, out_features=3, bias=True)\n)",
+    "Loss Function": "BCELoss()",
+    "Epochs": 10,
+    "Thresholds": [
+        0.4,
+        0.5,
+        0.6
+    ],
+    "Train Loss Over Epochs": [
+        0.5872385501861572,
+        0.4847191385671395,
+        0.45610804480760275,
+        0.4421341978773779,
+        0.4361119260187863,
+        0.43309673443943464,
+        0.42929379571051823,
+        0.4264871650407103,
+        0.4245115895660556,
+        0.42520748088959937
+    ],
+    "Test Loss Over Epochs": [
+        0.4758623596784231,
+        0.43541083545298187,
+        0.3885296293207117,
+        0.4013784157263266,
+        0.38266883428032333,
+        0.3885984783237045,
+        0.3722251412030813,
+        0.3703323465746802,
+        0.3678985455551663,
+        0.36808844756435705
+    ]
+}

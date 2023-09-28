@@ -8,6 +8,9 @@ import numpy as np
 loadpath = 'raw_data'
 savepath = 'modified_data'
 
+TIME_DIFF_1 = 1
+TIME_DIFF_24 = 24 # a day
+TIME_DIFF_168 = 24 * 7 # a week
 
 class TechnicalIndicators:
     @staticmethod
@@ -54,10 +57,20 @@ class TechnicalIndicators:
         df['Log_Returns'] = np.log(df['close'] / df['close'].shift(1))
         return df
     
+    # @staticmethod
+    # def add_boolean_direction(df):
+    #     df['next_hour'] = df['close'].shift(-1)
+    #     df['Target'] = (df['next_hour'] > df['close']).astype(int)
+    #     return df
+    
     @staticmethod
-    def add_boolean_direction(df):
-        df['next_hour'] = df['close'].shift(-1)
-        df['Target'] = (df['next_hour'] > df['close']).astype(int)
+    def add_time_diff_columns(df):
+        df[f'close_shifted_{TIME_DIFF_1}'] = df['close'].shift(-TIME_DIFF_1)
+        df[f'close_shifted_{TIME_DIFF_24}'] = df['close'].shift(-TIME_DIFF_24)
+        df[f'close_shifted_{TIME_DIFF_168}'] = df['close'].shift(-TIME_DIFF_168)
+        df[f'Target_shifted_{TIME_DIFF_1}'] = (df[f'close_shifted_{TIME_DIFF_1}'] > df['close']).astype(int)
+        df[f'Target_shifted_{TIME_DIFF_24}'] = (df[f'close_shifted_{TIME_DIFF_24}'] > df['close']).astype(int)
+        df[f'Target_shifted_{TIME_DIFF_168}'] = (df[f'close_shifted_{TIME_DIFF_168}'] > df['close']).astype(int)
         return df
     
     # Z-score Normalization [Commented out]
@@ -75,7 +88,8 @@ class TechnicalIndicators:
         df = cls.add_VWAP(df)
         df = cls.add_percentage_returns(df)
         df = cls.add_log_returns(df)
-        df = cls.add_boolean_direction(df)
+        df = cls.add_time_diff_columns(df)
+        # df = cls.add_boolean_direction(df)
         return df
     
 

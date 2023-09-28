@@ -1,0 +1,7 @@
+*.csv
+cpu_env/
+gpu_env/
+combined_data/
+modified_data/
+raw_data/
+models/

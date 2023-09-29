@@ -1,0 +1,3577 @@
+{
+    "Date of Training": "20230929_1317",
+    "Training File": "modified_data/gemini_data_BOND_mod.csv",
+    "Data Range": {
+        "Start": "2023-06-14",
+        "End": "2022-02-11"
+    },
+    "Features Used": [
+        "Volume USD",
+        "SMA",
+        "EMA",
+        "RSI",
+        "MACD",
+        "Bollinger_High",
+        "Bollinger_Low",
+        "VWAP",
+        "Percentage_Returns",
+        "Log_Returns"
+    ],
+    "Targets": [
+        "1 hour",
+        "24 hours",
+        "168 hours"
+    ],
+    "Model Structure": "StockPredictor(\n  (lstm): LSTM(10, 50, num_layers=2, batch_first=True, dropout=0.5)\n  (linear): Linear(in_features=50, out_features=3, bias=True)\n)",
+    "Model Parameters": {
+        "Hidden Dimension": 50,
+        "Number of Layers": 2,
+        "Dropout Rate": 0.5
+    },
+    "Loss Function": "BCELoss()",
+    "Optimizer": {
+        "Type": "Adam",
+        "Learning Rate": 0.001,
+        "Weight Decay": 1e-05
+    },
+    "Epochs": 100,
+    "Train Loss Over Epochs": [
+        0.6817108352168076,
+        0.6757281491545593,
+        0.6737044141406104,
+        0.671151153489846,
+        0.669899236588251,
+        0.6656678039200452,
+        0.6605828424700263,
+        0.656915769690559,
+        0.6560077144175159,
+        0.6529450878805044,
+        0.6536999685423714,
+        0.6513550427495217,
+        0.6497104609904646,
+        0.6502703566129516,
+        0.6486147192059731,
+        0.6478454105708064,
+        0.6482938617265144,
+        0.6470006789479937,
+        0.6452624368018844,
+        0.6457721793732676,
+        0.6440709411692457,
+        0.6431069418686588,
+        0.6451789546175067,
+        0.6396692346553413,
+        0.639842249503752,
+        0.6395676002210501,
+        0.6416343195097787,
+        0.638422167625557,
+        0.6379508023359337,
+        0.6361242771959629,
+        0.6373794078826904,
+        0.6336510347671249,
+        0.6325572404731699,
+        0.6320573253696468,
+        0.6286267236787446,
+        0.6321562333982818,
+        0.6303439257907218,
+        0.6269098739234769,
+        0.6278471411490927,
+        0.625320607707614,
+        0.6251297410653562,
+        0.6213833308544289,
+        0.6213296732934964,
+        0.6203914053586065,
+        0.6190847215198335,
+        0.6154934119205085,
+        0.6168689829151647,
+        0.6164506029109565,
+        0.6174349217187791,
+        0.612719226856621,
+        0.6098936800243092,
+        0.6110839624794162,
+        0.6081048988160633,
+        0.6075645912261236,
+        0.606721353774168,
+        0.6051281098605824,
+        0.6015911398290776,
+        0.6028363218112868,
+        0.5954964736691949,
+        0.5953476258686611,
+        0.5900958298014946,
+        0.5958769061938435,
+        0.5928046484382785,
+        0.590719246134466,
+        0.5863310556833435,
+        0.5857620291969403,
+        0.5866185325343592,
+        0.5940522879970317,
+        0.5852346039142738,
+        0.5753529534047964,
+        0.5770887598699453,
+        0.5795196104211872,
+        0.5771561386633892,
+        0.5737048760563338,
+        0.5725533787896033,
+        0.565914418421635,
+        0.5690556172610951,
+        0.5633777572589667,
+        0.5592034939600496,
+        0.5575150902173958,
+        0.5630166309625924,
+        0.5585508336420772,
+        0.5601749485041819,
+        0.5552693274961847,
+        0.5466904887536757,
+        0.5442008031468814,
+        0.5421129787454799,
+        0.5466142657662736,
+        0.5385693674590312,
+        0.5380358998061848,
+        0.5340280962639115,
+        0.5359300115481526,
+        0.5246835393565041,
+        0.5238787002709447,
+        0.5271968575967413,
+        0.5196453349119952,
+        0.5269066411621717,
+        0.5223837865858661,
+        0.5273174254261718,
+        0.5231253397302563
+    ],
+    "Test Loss Over Epochs": [
+        0.6781968877122209,
+        1.0276758163361936,
+        0.8061675904570399,
+        0.8587297185047252,
+        0.8872360321315559,
+        1.1842553639734112,
+        1.3316649931508142,
+        0.8977481666448954,
+        0.7789729350322002,
+        1.0377267139988977,
+        1.1218088027593252,
+        0.6739658737504804,
+        0.7260110764890104,
+        1.1941698564065468,
+        0.7408251496585639,
+        0.8375282650058334,
+        1.0901854561792839,
+        0.8372606143758103,
+        0.6952262222766876,
+        0.8071697724832071,
+        0.7393691668639312,
+        0.6983012734232722,
+        0.7210216014771849,
+        0.7265440580007192,
+        0.8554687862460678,
+        0.839594500290381,
+        0.794402964211799,
+        0.8141631894820446,
+        1.0845695017157375,
+        0.7264407381818101,
+        1.233597289066057,
+        0.7776365908416542,
+        0.8318112855022018,
+        1.395868415768082,
+        1.228225443814252,
+        0.7594859769215455,
+        1.0160942536753577,
+        0.8434598067322293,
+        0.7835302111264821,
+        0.9320056430391364,
+        0.725976446995864,
+        0.7727141364200695,
+        0.8012696520702259,
+        1.1707174979351662,
+        0.7966263680844694,
+        0.7887592412330009,
+        0.8245363533496857,
+        0.8140087522364952,
+        0.885768949180036,
+        1.425050512358949,
+        1.2643208745363597,
+        1.4654431512226929,
+        0.8194767430021956,
+        0.794337048723891,
+        0.8609984774847288,
+        0.8314936048275715,
+        1.152250574247257,
+        0.804625191398569,
+        0.8712222084805772,
+        0.7915195556911262,
+        0.8721146760760127,
+        0.7717352122873873,
+        0.8421746919283996,
+        0.7852480918974489,
+        0.9363638549237638,
+        0.8118878264684934,
+        0.7715529251743007,
+        0.8979141325563997,
+        0.9415000886530489,
+        0.8878583988627872,
+        1.5522996412741172,
+        1.0673334405228898,
+        0.7807392349114289,
+        0.8986416523521011,
+        0.8122600123688981,
+        0.7928397913236875,
+        0.854459579731967,
+        0.8528294080012554,
+        1.102081518720936,
+        0.9518428501245138,
+        0.8858409540073292,
+        0.940750315382674,
+        0.8142344339473827,
+        0.8584296212003037,
+        0.8544703842820348,
+        0.7917674409376608,
+        0.9528126458863955,
+        1.0126970168706533,
+        0.8522979004963024,
+        0.8935176786538717,
+        0.8957396479877265,
+        0.8498205913079752,
+        1.0718497931957245,
+        0.8530594682371294,
+        1.5572731172716296,
+        0.886984916957649,
+        0.8734069893489013,
+        0.7989939934498554,
+        0.792049900905506,
+        0.8505759182814006
+    ],
+    "Evaluation Metrics": [
+        {
+            "Threshold": 0.0,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 99600,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 61800,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            }
+        },
+        {
+            "Threshold": 0.01,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 234468,
+                "Predicted 0s": 32,
+                "False Positives": 99581,
+                "False Negatives": 13,
+                "False Positive Ratio": 0.9998092369477911,
+                "False Negative Ratio": 9.636767976278724e-05
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 205303,
+                "Predicted 0s": 29197,
+                "False Positives": 44554,
+                "False Negatives": 11951,
+                "False Positive Ratio": 0.7209385113268608,
+                "False Negative Ratio": 0.06920092646207296
+            }
+        },
+        {
+            "Threshold": 0.02,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 233355,
+                "Predicted 0s": 1145,
+                "False Positives": 99179,
+                "False Negatives": 724,
+                "False Positive Ratio": 0.9957730923694779,
+                "False Negative Ratio": 0.005366938472942921
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 197112,
+                "Predicted 0s": 37388,
+                "False Positives": 40874,
+                "False Negatives": 16462,
+                "False Positive Ratio": 0.6613915857605178,
+                "False Negative Ratio": 0.09532136653155761
+            }
+        },
+        {
+            "Threshold": 0.03,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 232414,
+                "Predicted 0s": 2086,
+                "False Positives": 98765,
+                "False Negatives": 1251,
+                "False Positive Ratio": 0.9916164658634539,
+                "False Negative Ratio": 0.00927353595255745
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 192653,
+                "Predicted 0s": 41847,
+                "False Positives": 39299,
+                "False Negatives": 19346,
+                "False Positive Ratio": 0.6359061488673139,
+                "False Negative Ratio": 0.11202084539664157
+            }
+        },
+        {
+            "Threshold": 0.04,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 231660,
+                "Predicted 0s": 2840,
+                "False Positives": 98460,
+                "False Negatives": 1700,
+                "False Positive Ratio": 0.9885542168674699,
+                "False Negative Ratio": 0.012601927353595256
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 189504,
+                "Predicted 0s": 44996,
+                "False Positives": 38210,
+                "False Negatives": 21406,
+                "False Positive Ratio": 0.6182847896440129,
+                "False Negative Ratio": 0.12394904458598727
+            }
+        },
+        {
+            "Threshold": 0.05,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 230925,
+                "Predicted 0s": 3575,
+                "False Positives": 98124,
+                "False Negatives": 2099,
+                "False Positive Ratio": 0.9851807228915662,
+                "False Negative Ratio": 0.015559673832468495
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 187087,
+                "Predicted 0s": 47413,
+                "False Positives": 37428,
+                "False Negatives": 23041,
+                "False Positive Ratio": 0.6056310679611651,
+                "False Negative Ratio": 0.1334163288940359
+            }
+        },
+        {
+            "Threshold": 0.06,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 229968,
+                "Predicted 0s": 4532,
+                "False Positives": 97762,
+                "False Negatives": 2694,
+                "False Positive Ratio": 0.9815461847389558,
+                "False Negative Ratio": 0.019970348406226836
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 185066,
+                "Predicted 0s": 49434,
+                "False Positives": 36768,
+                "False Negatives": 24402,
+                "False Positive Ratio": 0.5949514563106796,
+                "False Negative Ratio": 0.14129704690214245
+            }
+        },
+        {
+            "Threshold": 0.07,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 228897,
+                "Predicted 0s": 5603,
+                "False Positives": 97294,
+                "False Negatives": 3297,
+                "False Positive Ratio": 0.9768473895582329,
+                "False Negative Ratio": 0.024440326167531504
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 183136,
+                "Predicted 0s": 51364,
+                "False Positives": 36270,
+                "False Negatives": 25834,
+                "False Positive Ratio": 0.5868932038834952,
+                "False Negative Ratio": 0.1495888824551245
+            }
+        },
+        {
+            "Threshold": 0.08,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 227871,
+                "Predicted 0s": 6629,
+                "False Positives": 96813,
+                "False Negatives": 3842,
+                "False Positive Ratio": 0.9720180722891566,
+                "False Negative Ratio": 0.028480355819125277
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 181512,
+                "Predicted 0s": 52988,
+                "False Positives": 35911,
+                "False Negatives": 27099,
+                "False Positive Ratio": 0.581084142394822,
+                "False Negative Ratio": 0.1569137232194557
+            }
+        },
+        {
+            "Threshold": 0.09,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 227025,
+                "Predicted 0s": 7475,
+                "False Positives": 96461,
+                "False Negatives": 4336,
+                "False Positive Ratio": 0.9684839357429719,
+                "False Negative Ratio": 0.03214232765011119
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 180242,
+                "Predicted 0s": 54258,
+                "False Positives": 35665,
+                "False Negatives": 28123,
+                "False Positive Ratio": 0.5771035598705502,
+                "False Negative Ratio": 0.1628430804863926
+            }
+        },
+        {
+            "Threshold": 0.1,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 226288,
+                "Predicted 0s": 8212,
+                "False Positives": 96132,
+                "False Negatives": 4744,
+                "False Positive Ratio": 0.9651807228915663,
+                "False Negative Ratio": 0.035166790214974056
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 178918,
+                "Predicted 0s": 55582,
+                "False Positives": 35423,
+                "False Negatives": 29205,
+                "False Positive Ratio": 0.5731877022653722,
+                "False Negative Ratio": 0.16910828025477706
+            }
+        },
+        {
+            "Threshold": 0.11,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 225536,
+                "Predicted 0s": 8964,
+                "False Positives": 95789,
+                "False Negatives": 5153,
+                "False Positive Ratio": 0.9617369477911647,
+                "False Negative Ratio": 0.03819866567828021
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 177638,
+                "Predicted 0s": 56862,
+                "False Positives": 35207,
+                "False Negatives": 30269,
+                "False Positive Ratio": 0.5696925566343042,
+                "False Negative Ratio": 0.17526925303995367
+            }
+        },
+        {
+            "Threshold": 0.12,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 224811,
+                "Predicted 0s": 9689,
+                "False Positives": 95470,
+                "False Negatives": 5559,
+                "False Positive Ratio": 0.9585341365461847,
+                "False Negative Ratio": 0.041208302446256485
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 176425,
+                "Predicted 0s": 58075,
+                "False Positives": 35023,
+                "False Negatives": 31298,
+                "False Positive Ratio": 0.566715210355987,
+                "False Negative Ratio": 0.18122756224667053
+            }
+        },
+        {
+            "Threshold": 0.13,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 224134,
+                "Predicted 0s": 10366,
+                "False Positives": 95163,
+                "False Negatives": 5929,
+                "False Positive Ratio": 0.9554518072289157,
+                "False Negative Ratio": 0.043951074870274276
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 175274,
+                "Predicted 0s": 59226,
+                "False Positives": 34875,
+                "False Negatives": 32301,
+                "False Positive Ratio": 0.5643203883495146,
+                "False Negative Ratio": 0.18703532136653156
+            }
+        },
+        {
+            "Threshold": 0.14,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 223362,
+                "Predicted 0s": 11138,
+                "False Positives": 94808,
+                "False Negatives": 6346,
+                "False Positive Ratio": 0.9518875502008032,
+                "False Negative Ratio": 0.04704225352112676
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 174090,
+                "Predicted 0s": 60410,
+                "False Positives": 34701,
+                "False Negatives": 33311,
+                "False Positive Ratio": 0.561504854368932,
+                "False Negative Ratio": 0.19288361320208455
+            }
+        },
+        {
+            "Threshold": 0.15,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 222382,
+                "Predicted 0s": 12118,
+                "False Positives": 94341,
+                "False Negatives": 6859,
+                "False Positive Ratio": 0.9471987951807229,
+                "False Negative Ratio": 0.050845070422535214
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 172911,
+                "Predicted 0s": 61589,
+                "False Positives": 34529,
+                "False Negatives": 34318,
+                "False Positive Ratio": 0.5587216828478965,
+                "False Negative Ratio": 0.19871453387376956
+            }
+        },
+        {
+            "Threshold": 0.16,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 221073,
+                "Predicted 0s": 13427,
+                "False Positives": 93717,
+                "False Negatives": 7544,
+                "False Positive Ratio": 0.9409337349397591,
+                "False Negative Ratio": 0.05592290585618977
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 171886,
+                "Predicted 0s": 62614,
+                "False Positives": 34372,
+                "False Negatives": 35186,
+                "False Positive Ratio": 0.5561812297734627,
+                "False Negative Ratio": 0.2037405906195715
+            }
+        },
+        {
+            "Threshold": 0.17,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 219610,
+                "Predicted 0s": 14890,
+                "False Positives": 93098,
+                "False Negatives": 8388,
+                "False Positive Ratio": 0.934718875502008,
+                "False Negative Ratio": 0.06217939214232765
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 170817,
+                "Predicted 0s": 63683,
+                "False Positives": 34225,
+                "False Negatives": 36108,
+                "False Positive Ratio": 0.5538025889967637,
+                "False Negative Ratio": 0.2090793283149971
+            }
+        },
+        {
+            "Threshold": 0.18,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 217819,
+                "Predicted 0s": 16681,
+                "False Positives": 92249,
+                "False Negatives": 9330,
+                "False Positive Ratio": 0.9261947791164659,
+                "False Negative Ratio": 0.06916234247590808
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 169899,
+                "Predicted 0s": 64601,
+                "False Positives": 34087,
+                "False Negatives": 36888,
+                "False Positive Ratio": 0.5515695792880259,
+                "False Negative Ratio": 0.2135958309206717
+            }
+        },
+        {
+            "Threshold": 0.19,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 215808,
+                "Predicted 0s": 18692,
+                "False Positives": 91320,
+                "False Negatives": 10412,
+                "False Positive Ratio": 0.9168674698795181,
+                "False Negative Ratio": 0.0771830985915493
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 169074,
+                "Predicted 0s": 65426,
+                "False Positives": 33956,
+                "False Negatives": 37582,
+                "False Positive Ratio": 0.5494498381877022,
+                "False Negative Ratio": 0.21761436016213087
+            }
+        },
+        {
+            "Threshold": 0.2,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 213895,
+                "Predicted 0s": 20605,
+                "False Positives": 90491,
+                "False Negatives": 11496,
+                "False Positive Ratio": 0.9085441767068273,
+                "False Negative Ratio": 0.08521868050407709
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 168206,
+                "Predicted 0s": 66294,
+                "False Positives": 33829,
+                "False Negatives": 38323,
+                "False Positive Ratio": 0.5473948220064725,
+                "False Negative Ratio": 0.2219050376375217
+            }
+        },
+        {
+            "Threshold": 0.21,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 211724,
+                "Predicted 0s": 22776,
+                "False Positives": 89494,
+                "False Negatives": 12670,
+                "False Positive Ratio": 0.8985341365461847,
+                "False Negative Ratio": 0.09392142327650112
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 167289,
+                "Predicted 0s": 67211,
+                "False Positives": 33685,
+                "False Negatives": 39096,
+                "False Positive Ratio": 0.5450647249190939,
+                "False Negative Ratio": 0.22638100752750434
+            }
+        },
+        {
+            "Threshold": 0.22,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 209647,
+                "Predicted 0s": 24853,
+                "False Positives": 88494,
+                "False Negatives": 13747,
+                "False Positive Ratio": 0.8884939759036145,
+                "False Negative Ratio": 0.10190511489992587
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 166419,
+                "Predicted 0s": 68081,
+                "False Positives": 33542,
+                "False Negatives": 39823,
+                "False Positive Ratio": 0.5427508090614886,
+                "False Negative Ratio": 0.23059061957151128
+            }
+        },
+        {
+            "Threshold": 0.23,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 207720,
+                "Predicted 0s": 26780,
+                "False Positives": 87555,
+                "False Negatives": 14735,
+                "False Positive Ratio": 0.879066265060241,
+                "False Negative Ratio": 0.1092290585618977
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 165617,
+                "Predicted 0s": 68883,
+                "False Positives": 33395,
+                "False Negatives": 40478,
+                "False Positive Ratio": 0.5403721682847896,
+                "False Negative Ratio": 0.23438332368268674
+            }
+        },
+        {
+            "Threshold": 0.24,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 205570,
+                "Predicted 0s": 28930,
+                "False Positives": 86643,
+                "False Negatives": 15973,
+                "False Positive Ratio": 0.8699096385542169,
+                "False Negative Ratio": 0.11840622683469236
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 164823,
+                "Predicted 0s": 69677,
+                "False Positives": 33237,
+                "False Negatives": 41114,
+                "False Positive Ratio": 0.5378155339805826,
+                "False Negative Ratio": 0.23806601042269832
+            }
+        },
+        {
+            "Threshold": 0.25,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 203451,
+                "Predicted 0s": 31049,
+                "False Positives": 85702,
+                "False Negatives": 17151,
+                "False Positive Ratio": 0.8604618473895582,
+                "False Negative Ratio": 0.12713862120088953
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 163940,
+                "Predicted 0s": 70560,
+                "False Positives": 33091,
+                "False Negatives": 41851,
+                "False Positive Ratio": 0.535453074433657,
+                "False Negative Ratio": 0.2423335263462652
+            }
+        },
+        {
+            "Threshold": 0.26,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 201191,
+                "Predicted 0s": 33309,
+                "False Positives": 84728,
+                "False Negatives": 18437,
+                "False Positive Ratio": 0.8506827309236947,
+                "False Negative Ratio": 0.13667160859896219
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 162974,
+                "Predicted 0s": 71526,
+                "False Positives": 32931,
+                "False Negatives": 42657,
+                "False Positive Ratio": 0.532864077669903,
+                "False Negative Ratio": 0.2470005790387956
+            }
+        },
+        {
+            "Threshold": 0.27,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 199017,
+                "Predicted 0s": 35483,
+                "False Positives": 83753,
+                "False Negatives": 19636,
+                "False Positive Ratio": 0.8408935742971888,
+                "False Negative Ratio": 0.14555967383246848
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 161931,
+                "Predicted 0s": 72569,
+                "False Positives": 32765,
+                "False Negatives": 43534,
+                "False Positive Ratio": 0.530177993527508,
+                "False Negative Ratio": 0.2520787492762015
+            }
+        },
+        {
+            "Threshold": 0.28,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 196891,
+                "Predicted 0s": 37609,
+                "False Positives": 82772,
+                "False Negatives": 20781,
+                "False Positive Ratio": 0.8310441767068273,
+                "False Negative Ratio": 0.15404744255003708
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 160796,
+                "Predicted 0s": 73704,
+                "False Positives": 32563,
+                "False Negatives": 44467,
+                "False Positive Ratio": 0.5269093851132686,
+                "False Negative Ratio": 0.25748118123914304
+            }
+        },
+        {
+            "Threshold": 0.29,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 193154,
+                "Predicted 0s": 41346,
+                "False Positives": 81074,
+                "False Negatives": 22820,
+                "False Positive Ratio": 0.813995983935743,
+                "False Negative Ratio": 0.16916234247590808
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 159796,
+                "Predicted 0s": 74704,
+                "False Positives": 32409,
+                "False Negatives": 45313,
+                "False Positive Ratio": 0.5244174757281553,
+                "False Negative Ratio": 0.26237984944991316
+            }
+        },
+        {
+            "Threshold": 0.3,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 190536,
+                "Predicted 0s": 43964,
+                "False Positives": 79862,
+                "False Negatives": 24226,
+                "False Positive Ratio": 0.8018273092369478,
+                "False Negative Ratio": 0.17958487768717568
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 158801,
+                "Predicted 0s": 75699,
+                "False Positives": 32252,
+                "False Negatives": 46151,
+                "False Positive Ratio": 0.5218770226537217,
+                "False Negative Ratio": 0.26723219455703534
+            }
+        },
+        {
+            "Threshold": 0.31,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 187816,
+                "Predicted 0s": 46684,
+                "False Positives": 78694,
+                "False Negatives": 25778,
+                "False Positive Ratio": 0.7901004016064257,
+                "False Negative Ratio": 0.19108969607116383
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 157706,
+                "Predicted 0s": 76794,
+                "False Positives": 32104,
+                "False Negatives": 47098,
+                "False Positive Ratio": 0.5194822006472491,
+                "False Negative Ratio": 0.27271569195136075
+            }
+        },
+        {
+            "Threshold": 0.32,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 184519,
+                "Predicted 0s": 49981,
+                "False Positives": 77126,
+                "False Negatives": 27507,
+                "False Positive Ratio": 0.7743574297188756,
+                "False Negative Ratio": 0.20390659747961454
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 156621,
+                "Predicted 0s": 77879,
+                "False Positives": 31948,
+                "False Negatives": 48027,
+                "False Positive Ratio": 0.516957928802589,
+                "False Negative Ratio": 0.27809496236247827
+            }
+        },
+        {
+            "Threshold": 0.33,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 182453,
+                "Predicted 0s": 52047,
+                "False Positives": 76205,
+                "False Negatives": 28652,
+                "False Positive Ratio": 0.7651104417670683,
+                "False Negative Ratio": 0.2123943661971831
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 155569,
+                "Predicted 0s": 78931,
+                "False Positives": 31747,
+                "False Negatives": 48878,
+                "False Positive Ratio": 0.513705501618123,
+                "False Negative Ratio": 0.28302258251302836
+            }
+        },
+        {
+            "Threshold": 0.34,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 180604,
+                "Predicted 0s": 53896,
+                "False Positives": 75463,
+                "False Negatives": 29759,
+                "False Positive Ratio": 0.7576606425702811,
+                "False Negative Ratio": 0.22060044477390658
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 154503,
+                "Predicted 0s": 79997,
+                "False Positives": 31539,
+                "False Negatives": 49736,
+                "False Positive Ratio": 0.5103398058252427,
+                "False Negative Ratio": 0.2879907353792704
+            }
+        },
+        {
+            "Threshold": 0.35000000000000003,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 178602,
+                "Predicted 0s": 55898,
+                "False Positives": 74661,
+                "False Negatives": 30959,
+                "False Positive Ratio": 0.7496084337349398,
+                "False Negative Ratio": 0.2294959229058562
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 153445,
+                "Predicted 0s": 81055,
+                "False Positives": 31354,
+                "False Negatives": 50609,
+                "False Positive Ratio": 0.5073462783171521,
+                "False Negative Ratio": 0.29304574406485234
+            }
+        },
+        {
+            "Threshold": 0.36,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 176886,
+                "Predicted 0s": 57614,
+                "False Positives": 73940,
+                "False Negatives": 31954,
+                "False Positive Ratio": 0.7423694779116465,
+                "False Negative Ratio": 0.23687175685693107
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 152469,
+                "Predicted 0s": 82031,
+                "False Positives": 31177,
+                "False Negatives": 51408,
+                "False Positive Ratio": 0.5044822006472492,
+                "False Negative Ratio": 0.2976722640416908
+            }
+        },
+        {
+            "Threshold": 0.37,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 175283,
+                "Predicted 0s": 59217,
+                "False Positives": 73224,
+                "False Negatives": 32841,
+                "False Positive Ratio": 0.7351807228915662,
+                "False Negative Ratio": 0.24344699777613046
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 151386,
+                "Predicted 0s": 83114,
+                "False Positives": 31018,
+                "False Negatives": 52332,
+                "False Positive Ratio": 0.5019093851132687,
+                "False Negative Ratio": 0.3030225825130284
+            }
+        },
+        {
+            "Threshold": 0.38,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 173513,
+                "Predicted 0s": 60987,
+                "False Positives": 72469,
+                "False Negatives": 33856,
+                "False Positive Ratio": 0.7276004016064257,
+                "False Negative Ratio": 0.2509710896960712
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 150338,
+                "Predicted 0s": 84162,
+                "False Positives": 30857,
+                "False Negatives": 53219,
+                "False Positive Ratio": 0.4993042071197411,
+                "False Negative Ratio": 0.3081586566299942
+            }
+        },
+        {
+            "Threshold": 0.39,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234500,
+                "Predicted 0s": 0,
+                "False Positives": 113900,
+                "False Negatives": 0,
+                "False Positive Ratio": 1.0,
+                "False Negative Ratio": 0.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 171607,
+                "Predicted 0s": 62893,
+                "False Positives": 71561,
+                "False Negatives": 34854,
+                "False Positive Ratio": 0.7184839357429719,
+                "False Negative Ratio": 0.2583691623424759
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 149318,
+                "Predicted 0s": 85182,
+                "False Positives": 30704,
+                "False Negatives": 54086,
+                "False Positive Ratio": 0.4968284789644013,
+                "False Negative Ratio": 0.31317892298784017
+            }
+        },
+        {
+            "Threshold": 0.4,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234493,
+                "Predicted 0s": 7,
+                "False Positives": 113895,
+                "False Negatives": 2,
+                "False Positive Ratio": 0.9999561018437225,
+                "False Negative Ratio": 1.658374792703151e-05
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 169599,
+                "Predicted 0s": 64901,
+                "False Positives": 70618,
+                "False Negatives": 35919,
+                "False Positive Ratio": 0.7090160642570281,
+                "False Negative Ratio": 0.26626389918458115
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 148315,
+                "Predicted 0s": 86185,
+                "False Positives": 30542,
+                "False Negatives": 54927,
+                "False Positive Ratio": 0.4942071197411003,
+                "False Negative Ratio": 0.31804863925883037
+            }
+        },
+        {
+            "Threshold": 0.41000000000000003,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234486,
+                "Predicted 0s": 14,
+                "False Positives": 113892,
+                "False Negatives": 6,
+                "False Positive Ratio": 0.9999297629499561,
+                "False Negative Ratio": 4.9751243781094526e-05
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 167499,
+                "Predicted 0s": 67001,
+                "False Positives": 69685,
+                "False Negatives": 37086,
+                "False Positive Ratio": 0.69964859437751,
+                "False Negative Ratio": 0.27491475166790214
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 147317,
+                "Predicted 0s": 87183,
+                "False Positives": 30404,
+                "False Negatives": 55787,
+                "False Positive Ratio": 0.49197411003236247,
+                "False Negative Ratio": 0.32302837290098435
+            }
+        },
+        {
+            "Threshold": 0.42,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234477,
+                "Predicted 0s": 23,
+                "False Positives": 113889,
+                "False Negatives": 12,
+                "False Positive Ratio": 0.9999034240561896,
+                "False Negative Ratio": 9.950248756218905e-05
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 165393,
+                "Predicted 0s": 69107,
+                "False Positives": 68773,
+                "False Negatives": 38280,
+                "False Positive Ratio": 0.6904919678714859,
+                "False Negative Ratio": 0.283765752409192
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 146368,
+                "Predicted 0s": 88132,
+                "False Positives": 30235,
+                "False Negatives": 56567,
+                "False Positive Ratio": 0.4892394822006472,
+                "False Negative Ratio": 0.32754487550665895
+            }
+        },
+        {
+            "Threshold": 0.43,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234450,
+                "Predicted 0s": 50,
+                "False Positives": 113874,
+                "False Negatives": 24,
+                "False Positive Ratio": 0.9997717295873574,
+                "False Negative Ratio": 0.0001990049751243781
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 163212,
+                "Predicted 0s": 71288,
+                "False Positives": 67818,
+                "False Negatives": 39506,
+                "False Positive Ratio": 0.6809036144578313,
+                "False Negative Ratio": 0.29285396590066715
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 145360,
+                "Predicted 0s": 89140,
+                "False Positives": 30095,
+                "False Negatives": 57435,
+                "False Positive Ratio": 0.48697411003236246,
+                "False Negative Ratio": 0.3325709322524609
+            }
+        },
+        {
+            "Threshold": 0.44,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234371,
+                "Predicted 0s": 129,
+                "False Positives": 113837,
+                "False Negatives": 66,
+                "False Positive Ratio": 0.9994468832309042,
+                "False Negative Ratio": 0.0005472636815920398
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 160772,
+                "Predicted 0s": 73728,
+                "False Positives": 66708,
+                "False Negatives": 40836,
+                "False Positive Ratio": 0.6697590361445783,
+                "False Negative Ratio": 0.30271312083024465
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 144167,
+                "Predicted 0s": 90333,
+                "False Positives": 29923,
+                "False Negatives": 58456,
+                "False Positive Ratio": 0.4841909385113269,
+                "False Negative Ratio": 0.3384829183555298
+            }
+        },
+        {
+            "Threshold": 0.45,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 234193,
+                "Predicted 0s": 307,
+                "False Positives": 113730,
+                "False Negatives": 137,
+                "False Positive Ratio": 0.9985074626865672,
+                "False Negative Ratio": 0.0011359867330016584
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 158550,
+                "Predicted 0s": 75950,
+                "False Positives": 65735,
+                "False Negatives": 42085,
+                "False Positive Ratio": 0.6599899598393574,
+                "False Negative Ratio": 0.31197183098591547
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 143011,
+                "Predicted 0s": 91489,
+                "False Positives": 29764,
+                "False Negatives": 59453,
+                "False Positive Ratio": 0.4816181229773463,
+                "False Negative Ratio": 0.3442559351476549
+            }
+        },
+        {
+            "Threshold": 0.46,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 233513,
+                "Predicted 0s": 987,
+                "False Positives": 113383,
+                "False Negatives": 470,
+                "False Positive Ratio": 0.9954609306409131,
+                "False Negative Ratio": 0.0038971807628524046
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 156466,
+                "Predicted 0s": 78034,
+                "False Positives": 64868,
+                "False Negatives": 43302,
+                "False Positive Ratio": 0.651285140562249,
+                "False Negative Ratio": 0.32099332839140104
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 141807,
+                "Predicted 0s": 92693,
+                "False Positives": 29605,
+                "False Negatives": 60498,
+                "False Positive Ratio": 0.4790453074433657,
+                "False Negative Ratio": 0.35030689056166764
+            }
+        },
+        {
+            "Threshold": 0.47000000000000003,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 231342,
+                "Predicted 0s": 3158,
+                "False Positives": 112318,
+                "False Negatives": 1576,
+                "False Positive Ratio": 0.9861106233538192,
+                "False Negative Ratio": 0.01306799336650083
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 154323,
+                "Predicted 0s": 80177,
+                "False Positives": 63989,
+                "False Negatives": 44566,
+                "False Positive Ratio": 0.6424598393574297,
+                "False Negative Ratio": 0.33036323202372125
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 140701,
+                "Predicted 0s": 93799,
+                "False Positives": 29481,
+                "False Negatives": 61480,
+                "False Positive Ratio": 0.4770388349514563,
+                "False Negative Ratio": 0.3559930515344528
+            }
+        },
+        {
+            "Threshold": 0.48,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 227146,
+                "Predicted 0s": 7354,
+                "False Positives": 110343,
+                "False Negatives": 3797,
+                "False Positive Ratio": 0.9687708516242318,
+                "False Negative Ratio": 0.03148424543946932
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 152239,
+                "Predicted 0s": 82261,
+                "False Positives": 63096,
+                "False Negatives": 45757,
+                "False Positive Ratio": 0.6334939759036144,
+                "False Negative Ratio": 0.33919199406968126
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 139813,
+                "Predicted 0s": 94687,
+                "False Positives": 29349,
+                "False Negatives": 62236,
+                "False Positive Ratio": 0.4749029126213592,
+                "False Negative Ratio": 0.36037058482918355
+            }
+        },
+        {
+            "Threshold": 0.49,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 220046,
+                "Predicted 0s": 14454,
+                "False Positives": 106828,
+                "False Negatives": 7382,
+                "False Positive Ratio": 0.937910447761194,
+                "False Negative Ratio": 0.0612106135986733
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 149857,
+                "Predicted 0s": 84643,
+                "False Positives": 62105,
+                "False Negatives": 47148,
+                "False Positive Ratio": 0.6235441767068273,
+                "False Negative Ratio": 0.3495033358042995
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 138708,
+                "Predicted 0s": 95792,
+                "False Positives": 29172,
+                "False Negatives": 63164,
+                "False Positive Ratio": 0.4720388349514563,
+                "False Negative Ratio": 0.3657440648523451
+            }
+        },
+        {
+            "Threshold": 0.5,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 209331,
+                "Predicted 0s": 25169,
+                "False Positives": 101629,
+                "False Negatives": 12898,
+                "False Positive Ratio": 0.8922651448639157,
+                "False Negative Ratio": 0.1069485903814262
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 147016,
+                "Predicted 0s": 87484,
+                "False Positives": 60935,
+                "False Negatives": 48819,
+                "False Positive Ratio": 0.6117971887550201,
+                "False Negative Ratio": 0.3618902891030393
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 137707,
+                "Predicted 0s": 96793,
+                "False Positives": 29001,
+                "False Negatives": 63994,
+                "False Positive Ratio": 0.46927184466019417,
+                "False Negative Ratio": 0.37055008685581936
+            }
+        },
+        {
+            "Threshold": 0.51,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 196707,
+                "Predicted 0s": 37793,
+                "False Positives": 95455,
+                "False Negatives": 19348,
+                "False Positive Ratio": 0.8380597014925373,
+                "False Negative Ratio": 0.16043117744610283
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 144605,
+                "Predicted 0s": 89895,
+                "False Positives": 59951,
+                "False Negatives": 50246,
+                "False Positive Ratio": 0.6019176706827309,
+                "False Negative Ratio": 0.372468495181616
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 136901,
+                "Predicted 0s": 97599,
+                "False Positives": 28861,
+                "False Negatives": 64660,
+                "False Positive Ratio": 0.4670064724919094,
+                "False Negative Ratio": 0.3744064852345107
+            }
+        },
+        {
+            "Threshold": 0.52,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 181078,
+                "Predicted 0s": 53422,
+                "False Positives": 87749,
+                "False Negatives": 27271,
+                "False Positive Ratio": 0.7704038630377524,
+                "False Negative Ratio": 0.22612769485903814
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 142617,
+                "Predicted 0s": 91883,
+                "False Positives": 59043,
+                "False Negatives": 51326,
+                "False Positive Ratio": 0.5928012048192771,
+                "False Negative Ratio": 0.38047442550037064
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 135809,
+                "Predicted 0s": 98691,
+                "False Positives": 28538,
+                "False Negatives": 65429,
+                "False Positive Ratio": 0.46177993527508093,
+                "False Negative Ratio": 0.37885929357266934
+            }
+        },
+        {
+            "Threshold": 0.53,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 168512,
+                "Predicted 0s": 65988,
+                "False Positives": 81654,
+                "False Negatives": 33742,
+                "False Positive Ratio": 0.7168920105355575,
+                "False Negative Ratio": 0.2797844112769486
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 140772,
+                "Predicted 0s": 93728,
+                "False Positives": 58226,
+                "False Negatives": 52354,
+                "False Positive Ratio": 0.5845983935742972,
+                "False Negative Ratio": 0.3880948851000741
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 134545,
+                "Predicted 0s": 99955,
+                "False Positives": 28204,
+                "False Negatives": 66359,
+                "False Positive Ratio": 0.4563754045307443,
+                "False Negative Ratio": 0.3842443543717429
+            }
+        },
+        {
+            "Threshold": 0.54,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 156724,
+                "Predicted 0s": 77776,
+                "False Positives": 75776,
+                "False Negatives": 39652,
+                "False Positive Ratio": 0.6652853380158034,
+                "False Negative Ratio": 0.3287893864013267
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 137408,
+                "Predicted 0s": 97092,
+                "False Positives": 56789,
+                "False Negatives": 54281,
+                "False Positive Ratio": 0.5701706827309238,
+                "False Negative Ratio": 0.4023795404002965
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 132954,
+                "Predicted 0s": 101546,
+                "False Positives": 28008,
+                "False Negatives": 67754,
+                "False Positive Ratio": 0.4532038834951456,
+                "False Negative Ratio": 0.3923219455703532
+            }
+        },
+        {
+            "Threshold": 0.55,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 140700,
+                "Predicted 0s": 93800,
+                "False Positives": 67954,
+                "False Negatives": 47854,
+                "False Positive Ratio": 0.5966110623353819,
+                "False Negative Ratio": 0.39679933665008293
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 134749,
+                "Predicted 0s": 99751,
+                "False Positives": 55643,
+                "False Negatives": 55794,
+                "False Positive Ratio": 0.5586646586345382,
+                "False Negative Ratio": 0.4135952557449963
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 131627,
+                "Predicted 0s": 102873,
+                "False Positives": 27831,
+                "False Negatives": 68904,
+                "False Positive Ratio": 0.45033980582524274,
+                "False Negative Ratio": 0.3989808917197452
+            }
+        },
+        {
+            "Threshold": 0.56,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 106924,
+                "Predicted 0s": 127576,
+                "False Positives": 51651,
+                "False Negatives": 65327,
+                "False Positive Ratio": 0.453476733977173,
+                "False Negative Ratio": 0.5416832504145938
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 132808,
+                "Predicted 0s": 101692,
+                "False Positives": 54851,
+                "False Negatives": 56943,
+                "False Positive Ratio": 0.5507128514056225,
+                "False Negative Ratio": 0.422112676056338
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 130755,
+                "Predicted 0s": 103745,
+                "False Positives": 27701,
+                "False Negatives": 69646,
+                "False Positive Ratio": 0.4482362459546926,
+                "False Negative Ratio": 0.4032773595830921
+            }
+        },
+        {
+            "Threshold": 0.5700000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 73814,
+                "Predicted 0s": 160686,
+                "False Positives": 35703,
+                "False Negatives": 82489,
+                "False Positive Ratio": 0.313459174714662,
+                "False Negative Ratio": 0.6839883913764511
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 130884,
+                "Predicted 0s": 103616,
+                "False Positives": 54061,
+                "False Negatives": 58077,
+                "False Positive Ratio": 0.542781124497992,
+                "False Negative Ratio": 0.4305189028910304
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 130004,
+                "Predicted 0s": 104496,
+                "False Positives": 27575,
+                "False Negatives": 70271,
+                "False Positive Ratio": 0.44619741100323623,
+                "False Negative Ratio": 0.4068963520555877
+            }
+        },
+        {
+            "Threshold": 0.58,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 50113,
+                "Predicted 0s": 184387,
+                "False Positives": 24289,
+                "False Negatives": 94776,
+                "False Positive Ratio": 0.21324846356453028,
+                "False Negative Ratio": 0.7858706467661691
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 128720,
+                "Predicted 0s": 105780,
+                "False Positives": 53114,
+                "False Negatives": 59294,
+                "False Positive Ratio": 0.533273092369478,
+                "False Negative Ratio": 0.4395404002965159
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 129284,
+                "Predicted 0s": 105216,
+                "False Positives": 27461,
+                "False Negatives": 70877,
+                "False Positive Ratio": 0.4443527508090615,
+                "False Negative Ratio": 0.4104053271569195
+            }
+        },
+        {
+            "Threshold": 0.59,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 28845,
+                "Predicted 0s": 205655,
+                "False Positives": 13891,
+                "False Negatives": 105646,
+                "False Positive Ratio": 0.12195785776997366,
+                "False Negative Ratio": 0.8760033167495854
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 126345,
+                "Predicted 0s": 108155,
+                "False Positives": 52155,
+                "False Negatives": 60710,
+                "False Positive Ratio": 0.5236445783132531,
+                "False Negative Ratio": 0.4500370644922165
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 128558,
+                "Predicted 0s": 105942,
+                "False Positives": 27318,
+                "False Negatives": 71460,
+                "False Positive Ratio": 0.4420388349514563,
+                "False Negative Ratio": 0.41378112333526346
+            }
+        },
+        {
+            "Threshold": 0.6,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 14813,
+                "Predicted 0s": 219687,
+                "False Positives": 7153,
+                "False Negatives": 112940,
+                "False Positive Ratio": 0.06280070237050044,
+                "False Negative Ratio": 0.9364842454394693
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 123485,
+                "Predicted 0s": 111015,
+                "False Positives": 51010,
+                "False Negatives": 62425,
+                "False Positive Ratio": 0.51214859437751,
+                "False Negative Ratio": 0.4627501853224611
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 127902,
+                "Predicted 0s": 106598,
+                "False Positives": 27166,
+                "False Negatives": 71964,
+                "False Positive Ratio": 0.43957928802588997,
+                "False Negative Ratio": 0.41669947886508396
+            }
+        },
+        {
+            "Threshold": 0.61,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 6973,
+                "Predicted 0s": 227527,
+                "False Positives": 3341,
+                "False Negatives": 116968,
+                "False Positive Ratio": 0.029332748024582966,
+                "False Negative Ratio": 0.9698839137645108
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 120564,
+                "Predicted 0s": 113936,
+                "False Positives": 49775,
+                "False Negatives": 64111,
+                "False Positive Ratio": 0.49974899598393574,
+                "False Negative Ratio": 0.4752483320978503
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 127239,
+                "Predicted 0s": 107261,
+                "False Positives": 27029,
+                "False Negatives": 72490,
+                "False Positive Ratio": 0.43736245954692554,
+                "False Negative Ratio": 0.4197452229299363
+            }
+        },
+        {
+            "Threshold": 0.62,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 3455,
+                "Predicted 0s": 231045,
+                "False Positives": 1662,
+                "False Negatives": 118807,
+                "False Positive Ratio": 0.014591747146619842,
+                "False Negative Ratio": 0.9851326699834162
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 117680,
+                "Predicted 0s": 116820,
+                "False Positives": 48616,
+                "False Negatives": 65836,
+                "False Positive Ratio": 0.48811244979919677,
+                "False Negative Ratio": 0.48803558191252777
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 126544,
+                "Predicted 0s": 107956,
+                "False Positives": 26891,
+                "False Negatives": 73047,
+                "False Positive Ratio": 0.4351294498381877,
+                "False Negative Ratio": 0.42297046902142443
+            }
+        },
+        {
+            "Threshold": 0.63,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 2052,
+                "Predicted 0s": 232448,
+                "False Positives": 995,
+                "False Negatives": 119543,
+                "False Positive Ratio": 0.008735733099209834,
+                "False Negative Ratio": 0.9912354892205638
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 114708,
+                "Predicted 0s": 119792,
+                "False Positives": 47381,
+                "False Negatives": 67573,
+                "False Positive Ratio": 0.47571285140562247,
+                "False Negative Ratio": 0.5009117865085249
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 125837,
+                "Predicted 0s": 108663,
+                "False Positives": 26752,
+                "False Negatives": 73615,
+                "False Positive Ratio": 0.43288025889967635,
+                "False Negative Ratio": 0.4262594093804285
+            }
+        },
+        {
+            "Threshold": 0.64,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 1421,
+                "Predicted 0s": 233079,
+                "False Positives": 683,
+                "False Negatives": 119862,
+                "False Positive Ratio": 0.005996488147497805,
+                "False Negative Ratio": 0.9938805970149254
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 111648,
+                "Predicted 0s": 122852,
+                "False Positives": 46091,
+                "False Negatives": 69343,
+                "False Positive Ratio": 0.4627610441767068,
+                "False Negative Ratio": 0.5140326167531505
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 125117,
+                "Predicted 0s": 109383,
+                "False Positives": 26623,
+                "False Negatives": 74206,
+                "False Positive Ratio": 0.43079288025889967,
+                "False Negative Ratio": 0.4296815286624204
+            }
+        },
+        {
+            "Threshold": 0.65,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 1048,
+                "Predicted 0s": 233452,
+                "False Positives": 498,
+                "False Negatives": 120050,
+                "False Positive Ratio": 0.00437225636523266,
+                "False Negative Ratio": 0.9954394693200663
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 108272,
+                "Predicted 0s": 126228,
+                "False Positives": 44669,
+                "False Negatives": 71297,
+                "False Positive Ratio": 0.4484839357429719,
+                "False Negative Ratio": 0.5285174203113417
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 124378,
+                "Predicted 0s": 110122,
+                "False Positives": 26490,
+                "False Negatives": 74812,
+                "False Positive Ratio": 0.4286407766990291,
+                "False Negative Ratio": 0.4331905037637522
+            }
+        },
+        {
+            "Threshold": 0.66,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 807,
+                "Predicted 0s": 233693,
+                "False Positives": 380,
+                "False Negatives": 120173,
+                "False Positive Ratio": 0.0033362598770851626,
+                "False Negative Ratio": 0.9964593698175788
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 104304,
+                "Predicted 0s": 130196,
+                "False Positives": 42946,
+                "False Negatives": 73542,
+                "False Positive Ratio": 0.43118473895582327,
+                "False Negative Ratio": 0.5451593773165307
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 123632,
+                "Predicted 0s": 110868,
+                "False Positives": 26338,
+                "False Negatives": 75406,
+                "False Positive Ratio": 0.4261812297734628,
+                "False Negative Ratio": 0.43662999420961207
+            }
+        },
+        {
+            "Threshold": 0.67,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 659,
+                "Predicted 0s": 233841,
+                "False Positives": 305,
+                "False Negatives": 120246,
+                "False Positive Ratio": 0.002677787532923617,
+                "False Negative Ratio": 0.9970646766169154
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 100376,
+                "Predicted 0s": 134124,
+                "False Positives": 41227,
+                "False Negatives": 75751,
+                "False Positive Ratio": 0.41392570281124497,
+                "False Negative Ratio": 0.5615344699777614
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 122880,
+                "Predicted 0s": 111620,
+                "False Positives": 26205,
+                "False Negatives": 76025,
+                "False Positive Ratio": 0.42402912621359223,
+                "False Negative Ratio": 0.44021424435437173
+            }
+        },
+        {
+            "Threshold": 0.68,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 453,
+                "Predicted 0s": 234047,
+                "False Positives": 204,
+                "False Negatives": 120351,
+                "False Positive Ratio": 0.001791044776119403,
+                "False Negative Ratio": 0.9979353233830845
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 96010,
+                "Predicted 0s": 138490,
+                "False Positives": 39349,
+                "False Negatives": 78239,
+                "False Positive Ratio": 0.395070281124498,
+                "False Negative Ratio": 0.5799777613046702
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 122046,
+                "Predicted 0s": 112454,
+                "False Positives": 26068,
+                "False Negatives": 76722,
+                "False Positive Ratio": 0.4218122977346278,
+                "False Negative Ratio": 0.4442501447596989
+            }
+        },
+        {
+            "Threshold": 0.6900000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 236,
+                "Predicted 0s": 234264,
+                "False Positives": 110,
+                "False Negatives": 120474,
+                "False Positive Ratio": 0.0009657594381035997,
+                "False Negative Ratio": 0.998955223880597
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 91961,
+                "Predicted 0s": 142539,
+                "False Positives": 37617,
+                "False Negatives": 80556,
+                "False Positive Ratio": 0.3776807228915663,
+                "False Negative Ratio": 0.5971534469977762
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 121166,
+                "Predicted 0s": 113334,
+                "False Positives": 25892,
+                "False Negatives": 77426,
+                "False Positive Ratio": 0.41896440129449836,
+                "False Negative Ratio": 0.448326577880718
+            }
+        },
+        {
+            "Threshold": 0.7000000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 169,
+                "Predicted 0s": 234331,
+                "False Positives": 79,
+                "False Negatives": 120510,
+                "False Positive Ratio": 0.0006935908691834943,
+                "False Negative Ratio": 0.9992537313432835
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 88313,
+                "Predicted 0s": 146187,
+                "False Positives": 36111,
+                "False Negatives": 82698,
+                "False Positive Ratio": 0.3625602409638554,
+                "False Negative Ratio": 0.6130318754633062
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 120305,
+                "Predicted 0s": 114195,
+                "False Positives": 25723,
+                "False Negatives": 78118,
+                "False Positive Ratio": 0.41622977346278317,
+                "False Negative Ratio": 0.4523335263462652
+            }
+        },
+        {
+            "Threshold": 0.71,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 101,
+                "Predicted 0s": 234399,
+                "False Positives": 44,
+                "False Negatives": 120543,
+                "False Positive Ratio": 0.00038630377524143984,
+                "False Negative Ratio": 0.9995273631840796
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 84516,
+                "Predicted 0s": 149984,
+                "False Positives": 34539,
+                "False Negatives": 84923,
+                "False Positive Ratio": 0.34677710843373494,
+                "False Negative Ratio": 0.6295255744996293
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 119300,
+                "Predicted 0s": 115200,
+                "False Positives": 25527,
+                "False Negatives": 78927,
+                "False Positive Ratio": 0.41305825242718447,
+                "False Negative Ratio": 0.45701795020266356
+            }
+        },
+        {
+            "Threshold": 0.72,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 23,
+                "Predicted 0s": 234477,
+                "False Positives": 11,
+                "False Negatives": 120588,
+                "False Positive Ratio": 9.657594381035996e-05,
+                "False Negative Ratio": 0.9999004975124378
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 81077,
+                "Predicted 0s": 153423,
+                "False Positives": 33111,
+                "False Negatives": 86934,
+                "False Positive Ratio": 0.3324397590361446,
+                "False Negative Ratio": 0.6444329132690882
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 118250,
+                "Predicted 0s": 116250,
+                "False Positives": 25326,
+                "False Negatives": 79776,
+                "False Positive Ratio": 0.40980582524271847,
+                "False Negative Ratio": 0.4619339895773017
+            }
+        },
+        {
+            "Threshold": 0.73,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 78435,
+                "Predicted 0s": 156065,
+                "False Positives": 32096,
+                "False Negatives": 88561,
+                "False Positive Ratio": 0.32224899598393575,
+                "False Negative Ratio": 0.6564936990363232
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 117196,
+                "Predicted 0s": 117304,
+                "False Positives": 25115,
+                "False Negatives": 80619,
+                "False Positive Ratio": 0.4063915857605178,
+                "False Negative Ratio": 0.4668152866242038
+            }
+        },
+        {
+            "Threshold": 0.74,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 76137,
+                "Predicted 0s": 158363,
+                "False Positives": 31098,
+                "False Negatives": 89861,
+                "False Positive Ratio": 0.3122289156626506,
+                "False Negative Ratio": 0.6661304670126019
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 116088,
+                "Predicted 0s": 118412,
+                "False Positives": 24895,
+                "False Negatives": 81507,
+                "False Positive Ratio": 0.402831715210356,
+                "False Negative Ratio": 0.4719571511291257
+            }
+        },
+        {
+            "Threshold": 0.75,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 72808,
+                "Predicted 0s": 161692,
+                "False Positives": 29776,
+                "False Negatives": 91868,
+                "False Positive Ratio": 0.2989558232931727,
+                "False Negative Ratio": 0.6810081541882876
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 114891,
+                "Predicted 0s": 119609,
+                "False Positives": 24689,
+                "False Negatives": 82498,
+                "False Positive Ratio": 0.39949838187702263,
+                "False Negative Ratio": 0.47769542559351474
+            }
+        },
+        {
+            "Threshold": 0.76,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 70726,
+                "Predicted 0s": 163774,
+                "False Positives": 28849,
+                "False Negatives": 93023,
+                "False Positive Ratio": 0.28964859437751006,
+                "False Negative Ratio": 0.6895700518902891
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 113705,
+                "Predicted 0s": 120795,
+                "False Positives": 24453,
+                "False Negatives": 83448,
+                "False Positive Ratio": 0.39567961165048543,
+                "False Negative Ratio": 0.48319629415170817
+            }
+        },
+        {
+            "Threshold": 0.77,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 68638,
+                "Predicted 0s": 165862,
+                "False Positives": 27995,
+                "False Negatives": 94257,
+                "False Positive Ratio": 0.28107429718875504,
+                "False Negative Ratio": 0.6987175685693106
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 112437,
+                "Predicted 0s": 122063,
+                "False Positives": 24204,
+                "False Negatives": 84467,
+                "False Positive Ratio": 0.3916504854368932,
+                "False Negative Ratio": 0.4890966994788651
+            }
+        },
+        {
+            "Threshold": 0.78,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 65492,
+                "Predicted 0s": 169008,
+                "False Positives": 26777,
+                "False Negatives": 96185,
+                "False Positive Ratio": 0.26884538152610443,
+                "False Negative Ratio": 0.7130096367679762
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 110889,
+                "Predicted 0s": 123611,
+                "False Positives": 23907,
+                "False Negatives": 85718,
+                "False Positive Ratio": 0.38684466019417474,
+                "False Negative Ratio": 0.49634047481181237
+            }
+        },
+        {
+            "Threshold": 0.79,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 61944,
+                "Predicted 0s": 172556,
+                "False Positives": 25332,
+                "False Negatives": 98288,
+                "False Positive Ratio": 0.25433734939759034,
+                "False Negative Ratio": 0.7285989621942179
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 109382,
+                "Predicted 0s": 125118,
+                "False Positives": 23625,
+                "False Negatives": 86943,
+                "False Positive Ratio": 0.38228155339805825,
+                "False Negative Ratio": 0.5034337000579039
+            }
+        },
+        {
+            "Threshold": 0.8,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 58511,
+                "Predicted 0s": 175989,
+                "False Positives": 24006,
+                "False Negatives": 100395,
+                "False Positive Ratio": 0.24102409638554217,
+                "False Negative Ratio": 0.7442179392142327
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 107573,
+                "Predicted 0s": 126927,
+                "False Positives": 23323,
+                "False Negatives": 88450,
+                "False Positive Ratio": 0.3773948220064725,
+                "False Negative Ratio": 0.5121598147075854
+            }
+        },
+        {
+            "Threshold": 0.81,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 52913,
+                "Predicted 0s": 181587,
+                "False Positives": 21820,
+                "False Negatives": 103807,
+                "False Positive Ratio": 0.21907630522088353,
+                "False Negative Ratio": 0.7695107487027427
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 105878,
+                "Predicted 0s": 128622,
+                "False Positives": 23007,
+                "False Negatives": 89829,
+                "False Positive Ratio": 0.37228155339805824,
+                "False Negative Ratio": 0.5201447596988998
+            }
+        },
+        {
+            "Threshold": 0.8200000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 46618,
+                "Predicted 0s": 187882,
+                "False Positives": 19289,
+                "False Negatives": 107571,
+                "False Positive Ratio": 0.19366465863453816,
+                "False Negative Ratio": 0.7974128984432913
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 104377,
+                "Predicted 0s": 130123,
+                "False Positives": 22736,
+                "False Negatives": 91059,
+                "False Positive Ratio": 0.36789644012944983,
+                "False Negative Ratio": 0.5272669368847713
+            }
+        },
+        {
+            "Threshold": 0.8300000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 39398,
+                "Predicted 0s": 195102,
+                "False Positives": 16379,
+                "False Negatives": 111881,
+                "False Positive Ratio": 0.16444779116465863,
+                "False Negative Ratio": 0.8293624907338769
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 102818,
+                "Predicted 0s": 131682,
+                "False Positives": 22437,
+                "False Negatives": 92319,
+                "False Positive Ratio": 0.3630582524271845,
+                "False Negative Ratio": 0.5345628257093226
+            }
+        },
+        {
+            "Threshold": 0.84,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 33046,
+                "Predicted 0s": 201454,
+                "False Positives": 13968,
+                "False Negatives": 115822,
+                "False Positive Ratio": 0.14024096385542167,
+                "False Negative Ratio": 0.858576723498888
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 101208,
+                "Predicted 0s": 133292,
+                "False Positives": 22143,
+                "False Negatives": 93635,
+                "False Positive Ratio": 0.35830097087378643,
+                "False Negative Ratio": 0.5421829762594094
+            }
+        },
+        {
+            "Threshold": 0.85,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 26486,
+                "Predicted 0s": 208014,
+                "False Positives": 11346,
+                "False Negatives": 119760,
+                "False Positive Ratio": 0.1139156626506024,
+                "False Negative Ratio": 0.8877687175685693
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 99382,
+                "Predicted 0s": 135118,
+                "False Positives": 21808,
+                "False Negatives": 95126,
+                "False Positive Ratio": 0.3528802588996764,
+                "False Negative Ratio": 0.550816444701795
+            }
+        },
+        {
+            "Threshold": 0.86,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 20352,
+                "Predicted 0s": 214148,
+                "False Positives": 8866,
+                "False Negatives": 123414,
+                "False Positive Ratio": 0.08901606425702811,
+                "False Negative Ratio": 0.9148554484803558
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 97472,
+                "Predicted 0s": 137028,
+                "False Positives": 21455,
+                "False Negatives": 96683,
+                "False Positive Ratio": 0.347168284789644,
+                "False Negative Ratio": 0.5598320787492762
+            }
+        },
+        {
+            "Threshold": 0.87,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 15428,
+                "Predicted 0s": 219072,
+                "False Positives": 6844,
+                "False Negatives": 126316,
+                "False Positive Ratio": 0.068714859437751,
+                "False Negative Ratio": 0.9363676797627872
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 95367,
+                "Predicted 0s": 139133,
+                "False Positives": 21113,
+                "False Negatives": 98446,
+                "False Positive Ratio": 0.34163430420711977,
+                "False Negative Ratio": 0.570040532715692
+            }
+        },
+        {
+            "Threshold": 0.88,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 11996,
+                "Predicted 0s": 222504,
+                "False Positives": 5377,
+                "False Negatives": 128281,
+                "False Positive Ratio": 0.0539859437751004,
+                "False Negative Ratio": 0.9509340252038547
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 93191,
+                "Predicted 0s": 141309,
+                "False Positives": 20725,
+                "False Negatives": 100234,
+                "False Positive Ratio": 0.3353559870550162,
+                "False Negative Ratio": 0.5803937463810075
+            }
+        },
+        {
+            "Threshold": 0.89,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 8973,
+                "Predicted 0s": 225527,
+                "False Positives": 4004,
+                "False Negatives": 129931,
+                "False Positive Ratio": 0.0402008032128514,
+                "False Negative Ratio": 0.9631653076352854
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 90823,
+                "Predicted 0s": 143677,
+                "False Positives": 20285,
+                "False Negatives": 102162,
+                "False Positive Ratio": 0.32823624595469253,
+                "False Negative Ratio": 0.5915576143601621
+            }
+        },
+        {
+            "Threshold": 0.9,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 6232,
+                "Predicted 0s": 228268,
+                "False Positives": 2758,
+                "False Negatives": 131426,
+                "False Positive Ratio": 0.027690763052208835,
+                "False Negative Ratio": 0.9742475908080059
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 87910,
+                "Predicted 0s": 146590,
+                "False Positives": 19747,
+                "False Negatives": 104537,
+                "False Positive Ratio": 0.3195307443365696,
+                "False Negative Ratio": 0.6053097857556456
+            }
+        },
+        {
+            "Threshold": 0.91,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 4128,
+                "Predicted 0s": 230372,
+                "False Positives": 1888,
+                "False Negatives": 132660,
+                "False Positive Ratio": 0.01895582329317269,
+                "False Negative Ratio": 0.9833951074870274
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 84617,
+                "Predicted 0s": 149883,
+                "False Positives": 19008,
+                "False Negatives": 107091,
+                "False Positive Ratio": 0.3075728155339806,
+                "False Negative Ratio": 0.6200984365952519
+            }
+        },
+        {
+            "Threshold": 0.92,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 2733,
+                "Predicted 0s": 231767,
+                "False Positives": 1270,
+                "False Negatives": 133437,
+                "False Positive Ratio": 0.012751004016064257,
+                "False Negative Ratio": 0.9891549295774648
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 81080,
+                "Predicted 0s": 153420,
+                "False Positives": 18394,
+                "False Negatives": 110014,
+                "False Positive Ratio": 0.29763754045307445,
+                "False Negative Ratio": 0.6370237405906196
+            }
+        },
+        {
+            "Threshold": 0.93,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 1647,
+                "Predicted 0s": 232853,
+                "False Positives": 805,
+                "False Negatives": 134058,
+                "False Positive Ratio": 0.008082329317269077,
+                "False Negative Ratio": 0.9937583395107487
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 77192,
+                "Predicted 0s": 157308,
+                "False Positives": 17636,
+                "False Negatives": 113144,
+                "False Positive Ratio": 0.2853721682847896,
+                "False Negative Ratio": 0.6551476548928779
+            }
+        },
+        {
+            "Threshold": 0.9400000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 798,
+                "Predicted 0s": 233702,
+                "False Positives": 423,
+                "False Negatives": 134525,
+                "False Positive Ratio": 0.004246987951807229,
+                "False Negative Ratio": 0.9972201630837657
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 73498,
+                "Predicted 0s": 161002,
+                "False Positives": 16736,
+                "False Negatives": 115938,
+                "False Positive Ratio": 0.2708090614886731,
+                "False Negative Ratio": 0.6713259988419225
+            }
+        },
+        {
+            "Threshold": 0.9500000000000001,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 219,
+                "Predicted 0s": 234281,
+                "False Positives": 123,
+                "False Negatives": 134804,
+                "False Positive Ratio": 0.0012349397590361445,
+                "False Negative Ratio": 0.999288361749444
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 69335,
+                "Predicted 0s": 165165,
+                "False Positives": 15851,
+                "False Negatives": 119216,
+                "False Positive Ratio": 0.2564886731391586,
+                "False Negative Ratio": 0.6903068905616676
+            }
+        },
+        {
+            "Threshold": 0.96,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 2,
+                "Predicted 0s": 234498,
+                "False Positives": 0,
+                "False Negatives": 134898,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 0.9999851742031134
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 64900,
+                "Predicted 0s": 169600,
+                "False Positives": 14823,
+                "False Negatives": 122623,
+                "False Positive Ratio": 0.23985436893203885,
+                "False Negative Ratio": 0.710034742327736
+            }
+        },
+        {
+            "Threshold": 0.97,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 134900,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 58740,
+                "Predicted 0s": 175760,
+                "False Positives": 13383,
+                "False Negatives": 127343,
+                "False Positive Ratio": 0.21655339805825244,
+                "False Negative Ratio": 0.7373653734800232
+            }
+        },
+        {
+            "Threshold": 0.98,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 134900,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 49036,
+                "Predicted 0s": 185464,
+                "False Positives": 11209,
+                "False Negatives": 134873,
+                "False Positive Ratio": 0.18137540453074433,
+                "False Negative Ratio": 0.7809669947886508
+            }
+        },
+        {
+            "Threshold": 0.99,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 134900,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 28277,
+                "Predicted 0s": 206223,
+                "False Positives": 6371,
+                "False Negatives": 150794,
+                "False Positive Ratio": 0.1030906148867314,
+                "False Negative Ratio": 0.8731557614360163
+            }
+        },
+        {
+            "Threshold": 1.0,
+            "1 hour": {
+                "Actual 1s": 120600,
+                "Actual 0s": 113900,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 120600,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "24 hours": {
+                "Actual 1s": 134900,
+                "Actual 0s": 99600,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 134900,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            },
+            "168 hours": {
+                "Actual 1s": 172700,
+                "Actual 0s": 61800,
+                "Predicted 1s": 0,
+                "Predicted 0s": 234500,
+                "False Positives": 0,
+                "False Negatives": 172700,
+                "False Positive Ratio": 0.0,
+                "False Negative Ratio": 1.0
+            }
+        }
+    ]
+}

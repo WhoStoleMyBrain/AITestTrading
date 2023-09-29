@@ -412,6 +412,8 @@ plt.title('Model Accuracy for Different Prediction Timeframes')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
+current_time = datetime.now().strftime('%Y%m%d_%H%M')
+plt.savefig(f'results/plots/{current_time}_accuracy.png')
 plt.show()
 
 final_test_acc = calculate_accuracy(tensor(all_predictions), y_test)

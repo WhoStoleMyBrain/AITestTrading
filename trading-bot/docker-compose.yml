@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  # PostgreSQL Database
+  db:
+    image: postgres:latest
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: trading_db
+
+  # Bot Service
+  bot:
+    build:
+      context: ./bot-service
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://user:password@db/trading_db
+
+  # Django Backend
+  backend:
+    build:
+      context: ./django-backend
+    volumes:
+      - ./django-backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://user:password@db/trading_db
+
+  # Flutter Frontend (Optional if you wish to containerize the frontend)
+  frontend:
+    build:
+      context: ./flutter-frontend
+    ports:
+      - "8080:8080"

@@ -30,6 +30,9 @@ class StockPredictor(Module):
 def calculate_accuracy(y_pred, y_actual):
     y_pred_bin = (y_pred >= 0.5).float()
     correct_predictions = (y_pred_bin == y_actual).sum(dim=0)
+    # correct_predictions2 = (y_pred_bin == y_actual)#.sum(dim=0)
+    # print(f'accuracy calculation: corr: {correct_predictions}')
+    # print(f'accuracy calculation: corr2: {correct_predictions2}')
     accuracy = correct_predictions / y_actual.size(0)
     return accuracy.tolist()
     
@@ -44,7 +47,7 @@ targets = [
 ]
 
 file_idx = 12
-num_epochs = 100
+num_epochs = 10
 all_predictions = []
 all_actual = []
 train_losses = []
@@ -399,8 +402,21 @@ plt.show()
 plt.figure(figsize=(12, 6))
 
 # Averaging over all batches
-avg_train_accuracies = np.mean(train_accuracies, axis=0)
-avg_test_accuracies = np.mean(test_accuracies, axis=0)
+# split_idx = int(len(X) * 0.8) # 80% for training
+step_train = int(len(X) * 0.8)
+step_test = int(len(X)) - step_train
+a = [np.mean(train_accuracies[i:i+step_train]) for i in range(0, len(train_accuracies), step_train)]
+b = [np.mean(test_accuracies[i:i+step_test]) for i in range(0, len(test_accuracies), step_test)]
+avg_train_accuracies = np.mean(a, axis=0)
+avg_test_accuracies = np.mean(b, axis=0)
+# avg_train_accuracies = np.mean(train_accuracies, axis=0)
+# avg_test_accuracies = np.mean(test_accuracies, axis=0)
+print(train_accuracies[0])
+print(test_accuracies[0])
+print(len(train_accuracies))
+print(len(test_accuracies))
+print(avg_train_accuracies)
+print(avg_test_accuracies)
 
 for idx, target in enumerate(targets):
     plt.plot(range(num_epochs), [acc[idx] for acc in avg_train_accuracies], label=f"Train Accuracy - {target}")
